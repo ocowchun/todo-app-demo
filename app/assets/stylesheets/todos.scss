@@ -1,3 +1,24 @@
 // Place all the styles related to the todos controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.todo-form{
+  margin-bottom: 20px;
+}
+
+.todo-item{
+   font-size:18px;
+   padding-bottom:5px;
+   border-bottom: 1px solid #f5f5f5;
+}
+
+.todo-item:hover{
+  background: #f7f7f9;
+}
+
+.todo-actions{
+  display:none;
+}
+
+.todo-item:hover .todo-actions{
+  display:inline;
+}

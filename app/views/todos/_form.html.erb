@@ -1,4 +1,9 @@
-<%= form_for @todo do |f| %>
-<%=f.text_field :content%>
-<%=f.submit%>
-<% end %>
+<div class="todo-form">
+  <%= form_for @todo,html:{class:"form-inline"} do |f| %>
+  <div class="form-group">
+    <%=f.text_field :content,class:"form-control",placeholder:"你需要完成什麼"%>
+  </div>
+  <%=f.submit class:"btn btn-default"%>
+  <% end %>
+
+</div>

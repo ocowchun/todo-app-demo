@@ -1,13 +1,28 @@
 <h2>待做事項</h2>
 <%=render :partial =>"form" %>
 
+<ol class="breadcrumb">
+  <li class="active">顯示全部</li>
+  <li><a href="#">待做</a></li>
+  <li><a href="#">完成</a></li>
+</ol>
+
 <%@todos.each do|todo|%>
-<%=todo.content%>
-<% if todo.active? %>
-<%= link_to "完成", complete_todo_path(todo),method:"post" %>
-<% else %>
-<%= link_to "待做", active_todo_path(todo),method:"post" %>
-<% end %>
-<%= link_to "編輯", edit_todo_path(todo) %>
-<%= link_to "刪除", edit_todo_path(todo),method:"delete",data: { confirm: "確定要刪除?" } %>
+<div class="row todo-item">
+
+  <div class="col-md-8">
+    <%=todo.content%>
+  </div>
+  <div class="col-md-4">
+    <% if todo.active? %>
+    <%= link_to "完成", complete_todo_path(todo),method:"post" %>
+    <% else %>
+    <%= link_to "待做", active_todo_path(todo),method:"post" %>
+    <% end %>
+    <span class="todo-actions">
+      <%= link_to "編輯", edit_todo_path(todo),class:"btn btn-success" %>
+      <%= link_to "刪除", edit_todo_path(todo),class:"btn btn-danger",method:"delete",data: { confirm: "確定要刪除?" } %>
+    </span>
+  </div>
+</div>
 <%end%>
