@@ -17,11 +17,14 @@ class TodosController < ApplicationController
   end
 
   def edit
-
   end
 
   def update
-
+    if @todo.update(todo_params)
+      redirect_to root_path
+    else
+      render :edit
+    end
   end
 
   def complete

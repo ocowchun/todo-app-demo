@@ -1,8 +1,5 @@
 <h2>待做事項</h2>
-<%= form_for @todo do |f| %>
-<%=f.text_field :content%>
-<%=f.submit%>
-<% end %>
+<%=render :partial =>"form" %>
 
 <%@todos.each do|todo|%>
 <%=todo.content%>
@@ -11,4 +8,6 @@
 <% else %>
 <%= link_to "待做", active_todo_path(todo),method:"post" %>
 <% end %>
+<%= link_to "編輯", edit_todo_path(todo) %>
+<%= link_to "刪除", edit_todo_path(todo),method:"delete",data: { confirm: "確定要刪除?" } %>
 <%end%>
