@@ -6,14 +6,21 @@
 <%@todos.each do|todo|%>
 <div class="row todo-item">
 
+  <% if todo.completed? %>
+  <div class="col-md-8 completed">
+    <%=todo.content%>
+  </div>
+  <% else %>
   <div class="col-md-8">
     <%=todo.content%>
   </div>
+  <% end %>
+
   <div class="col-md-4">
     <% if todo.active? %>
-    <%= link_to "完成", complete_todo_path(todo),method:"post" %>
+    <%= link_to "完成", complete_todo_path(todo),class:"btn btn-primary",method:"post" %>
     <% else %>
-    <%= link_to "待做", active_todo_path(todo),method:"post" %>
+    <%= link_to "尚未完成", active_todo_path(todo),class:"btn btn-primary",method:"post" %>
     <% end %>
     <span class="todo-actions">
       <%= link_to "編輯", edit_todo_path(todo),class:"btn btn-success" %>

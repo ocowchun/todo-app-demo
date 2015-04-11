@@ -22,3 +22,7 @@
 .todo-item:hover .todo-actions{
   display:inline;
 }
+
+div.completed{
+   text-decoration: line-through;
+}
