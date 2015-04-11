@@ -17,7 +17,7 @@
     <% end %>
     <span class="todo-actions">
       <%= link_to "編輯", edit_todo_path(todo),class:"btn btn-success" %>
-      <%= link_to "刪除", edit_todo_path(todo),class:"btn btn-danger",method:"delete",data: { confirm: "確定要刪除?" } %>
+      <%= link_to "刪除", todo_path(todo),class:"btn btn-danger",method:"delete",data: { confirm: "確定要刪除?" } %>
     </span>
   </div>
 </div>
