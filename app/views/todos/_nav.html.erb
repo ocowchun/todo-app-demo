@@ -1,0 +1,26 @@
+<ul class="nav nav-pills">
+  <% if active_todo_nav=="all" %>
+  <li role="presentation" class="active"><a href="#">顯示全部</a></li>
+  <% else %>
+  <li role="presentation"><%= link_to "顯示全部", todos_path(filter:"all") %>
+  </li>
+  <% end %>
+
+  <% if active_todo_nav=="active" %>
+    <li role="presentation" class="active"><a href="#">待做</a></li>
+  <% else %>
+  <li role="presentation"><%= link_to "待做", todos_path(filter:"active") %>
+  </li>
+  <% end %>
+
+  <% if active_todo_nav=="completed" %>
+    <li role="presentation" class="active"><a href="#">完成</a></li>
+
+  <% else %>
+  <li role="presentation"><%= link_to "完成", todos_path(filter:"completed") %>
+  </li>
+
+  <% end %>
+
+
+</ul>

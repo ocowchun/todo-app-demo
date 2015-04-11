@@ -1,11 +1,7 @@
 <h2>待做事項</h2>
 <%=render :partial =>"form" %>
 
-<ol class="breadcrumb">
-  <li class="active">顯示全部</li>
-  <li><a href="#">待做</a></li>
-  <li><a href="#">完成</a></li>
-</ol>
+<%=render :partial =>"nav" %>
 
 <%@todos.each do|todo|%>
 <div class="row todo-item">

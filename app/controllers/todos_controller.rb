@@ -4,6 +4,10 @@ class TodosController < ApplicationController
   def index
     @todo=Todo.new
     @todos=Todo.all
+    if params[:filter].present?
+      @todos=@todos.active if params[:filter]=="active"
+      @todos=@todos.completed if params[:filter]=="completed"
+    end
   end
 
 
