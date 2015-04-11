@@ -1,4 +1,4 @@
 class Todo < ActiveRecord::Base
-  enum status:[:active,:complete]
+  enum status:[:active,:completed]
 
 end

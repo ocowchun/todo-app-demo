@@ -1,0 +1,14 @@
+<h2>待做事項</h2>
+<%= form_for @todo do |f| %>
+<%=f.text_field :content%>
+<%=f.submit%>
+<% end %>
+
+<%@todos.each do|todo|%>
+<%=todo.content%>
+<% if todo.active? %>
+<%= link_to "完成", complete_todo_path(todo),method:"post" %>
+<% else %>
+<%= link_to "待做", active_todo_path(todo),method:"post" %>
+<% end %>
+<%end%>

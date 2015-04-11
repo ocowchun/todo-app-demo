@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  root 'todos#index'
+  resources :todos do
+    member do
+      post 'complete'
+      post 'active'
+    end
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
