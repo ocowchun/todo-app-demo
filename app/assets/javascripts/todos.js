@@ -2,6 +2,7 @@ $(function() {
   var $newTodo = $('#new_todo');
   var $todoContent = $('#todo_content');
   var $todoList = $('#todoList');
+  var $todoErros = $('#todoErros');
 
   $newTodo.on('submit', function(e) {
     e.preventDefault();
@@ -13,8 +14,13 @@ $(function() {
     $.post('/todos', {
       'content': content
     }, function(result) {
-      $todoList.append(result);
-      $todoContent.val('');
+      if (!!result.messages) {
+        $todoErros.text(result.messages.join(','));
+      } else {
+        $todoList.append(result);
+        $todoContent.val('');
+        $todoErros.text('');
+      }
     });
   }
 

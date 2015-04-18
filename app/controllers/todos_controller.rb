@@ -17,7 +17,7 @@ class TodosController < ApplicationController
     if @todo.save
       render layout:false
     else
-      render :index
+      render json: {messages:@todo.errors.full_messages}
     end
   end
 
