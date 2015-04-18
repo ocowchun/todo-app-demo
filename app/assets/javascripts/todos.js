@@ -14,6 +14,7 @@ $(function() {
       'content': content
     }, function(result) {
       $todoList.append(result);
+      $todoContent.val('');
     });
   }
 
