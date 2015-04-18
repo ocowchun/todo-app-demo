@@ -12,9 +12,10 @@ class TodosController < ApplicationController
 
 
   def create
-    @todo=Todo.new(todo_params)
+    @todo=Todo.new
+    @todo.content=params[:content]
     if @todo.save
-      redirect_to root_path
+      render layout:false
     else
       render :index
     end

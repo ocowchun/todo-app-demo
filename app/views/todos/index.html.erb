@@ -3,29 +3,9 @@
 
 <%=render :partial =>"nav" %>
 
-<%@todos.each do|todo|%>
-<div class="row todo-item">
+<div id="todoList">
+  <%@todos.each do|todo|%>
+  <%=render :partial =>"todo_item", :locals => { todo:todo } %>
+  <%end%>
 
-  <% if todo.completed? %>
-  <div class="col-md-8 completed">
-    <%=todo.content%>
-  </div>
-  <% else %>
-  <div class="col-md-8">
-    <%=todo.content%>
-  </div>
-  <% end %>
-
-  <div class="col-md-4">
-    <% if todo.active? %>
-    <%= link_to "完成", complete_todo_path(todo),class:"btn btn-primary",method:"post" %>
-    <% else %>
-    <%= link_to "尚未完成", active_todo_path(todo),class:"btn btn-primary",method:"post" %>
-    <% end %>
-    <span class="todo-actions">
-      <%= link_to "編輯", edit_todo_path(todo),class:"btn btn-success" %>
-      <%= link_to "刪除", todo_path(todo),class:"btn btn-danger",method:"delete",data: { confirm: "確定要刪除?" } %>
-    </span>
-  </div>
 </div>
-<%end%>
